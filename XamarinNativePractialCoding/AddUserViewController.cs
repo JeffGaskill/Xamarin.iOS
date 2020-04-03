@@ -49,13 +49,9 @@ namespace XamarinNativePractialCoding
                     LastNameField.Text = string.IsNullOrEmpty(LastNameField.Text) ? "<Unknown>" : LastNameField.Text,
                     TitleField.Text = string.IsNullOrEmpty(TitleField.Text) ? "<Unknown>" : TitleField.Text,
                     PasswordField.Text);
+                ClearValuesAndGoHome();
 
-                FirstNameField.Text = string.Empty;
-                LastNameField.Text = string.Empty;
-                TitleField.Text = string.Empty;
-                PasswordField.Text = string.Empty;
 
-                TabBarController.SelectedIndex = 0;
             }
             else
             {
@@ -64,6 +60,21 @@ namespace XamarinNativePractialCoding
                 PresentViewController(alert, true, null);
                 PasswordField.Text = string.Empty;
             }
+        }
+
+        private void ClearValuesAndGoHome()
+        {
+            FirstNameField.Text = string.Empty;
+            LastNameField.Text = string.Empty;
+            TitleField.Text = string.Empty;
+            PasswordField.Text = string.Empty;
+
+            TabBarController.SelectedIndex = 0;
+        }
+
+        partial void CancelButton_TouchUpInside(UIButton sender)
+        {
+            ClearValuesAndGoHome();
         }
     }
 }

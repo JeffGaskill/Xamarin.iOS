@@ -20,6 +20,10 @@ namespace XamarinNativePractialCoding
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIButton CancelButton { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UITextField FirstNameField { get; set; }
 
         [Outlet]
@@ -38,11 +42,20 @@ namespace XamarinNativePractialCoding
         [GeneratedCode ("iOS Designer", "1.0")]
         partial void AddUserButton_TouchUpInside (UIKit.UIButton sender);
 
+        [Action ("CancelButton_TouchUpInside:")]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        partial void CancelButton_TouchUpInside (UIKit.UIButton sender);
+
         void ReleaseDesignerOutlets ()
         {
             if (AddUserButton != null) {
                 AddUserButton.Dispose ();
                 AddUserButton = null;
+            }
+
+            if (CancelButton != null) {
+                CancelButton.Dispose ();
+                CancelButton = null;
             }
 
             if (FirstNameField != null) {

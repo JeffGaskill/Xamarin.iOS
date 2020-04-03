@@ -1,12 +1,10 @@
-using Foundation;
 using System;
-using System.Collections.Generic;
-using UIKit;
-using XamarinNativePractialCoding.Models;
 using System.Linq;
-using XamarinNativePractialCoding.TableData;
-using System.Threading.Tasks;
+using Foundation;
+using UIKit;
 using XamarinNativePractialCoding.ExtensionMethods;
+using XamarinNativePractialCoding.Models;
+using XamarinNativePractialCoding.TableData;
 
 namespace XamarinNativePractialCoding
 {
