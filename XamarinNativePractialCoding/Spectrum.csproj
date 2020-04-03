@@ -78,10 +78,6 @@
     <Compile Include="UsersTableViewController.designer.cs">
       <DependentUpon>UsersTableViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserCustomTableView.cs" />
-    <Compile Include="UserCustomTableView.designer.cs">
-      <DependentUpon>UserCustomTableView.cs</DependentUpon>
-    </Compile>
     <Compile Include="UserCustomTableViewCell.cs" />
     <Compile Include="UserCustomTableViewCell.designer.cs">
       <DependentUpon>UserCustomTableViewCell.cs</DependentUpon>
