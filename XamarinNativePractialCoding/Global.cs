@@ -1,5 +1,4 @@
-﻿using System;
-using System.Threading;
+﻿using System.Threading;
 using System.Threading.Tasks;
 using XamarinNativePractialCoding.TableData;
 
@@ -19,14 +18,10 @@ namespace XamarinNativePractialCoding
 
             try
             {
-                Task.Run(async() =>
+                Task.Run(async () =>
                 {
-                  PersistedData = await  DataService.FetchDataFromDiskAsync();
+                    PersistedData = await DataService.FetchDataFromDiskAsync();
                 });
-            }
-            catch (Exception)
-            {
-                throw;
             }
             finally
             {

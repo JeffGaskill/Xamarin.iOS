@@ -87,10 +87,6 @@
       <DependentUpon>UserCustomTableViewCell.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Person.cs" />
-    <Compile Include="AddUserButton.cs" />
-    <Compile Include="AddUserButton.designer.cs">
-      <DependentUpon>AddUserButton.cs</DependentUpon>
-    </Compile>
     <Compile Include="AddUserViewController.cs" />
     <Compile Include="AddUserViewController.designer.cs">
       <DependentUpon>AddUserViewController.cs</DependentUpon>

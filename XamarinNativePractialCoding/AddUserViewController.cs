@@ -17,10 +17,31 @@ namespace XamarinNativePractialCoding
             FirstNameField.BecomeFirstResponder();
         }
 
-        partial void AddUserButton8588_TouchUpInside(AddUserButton sender)
+        public static bool ValidatePassword(string password)
         {
+            bool isValid;
 
 
+            bool hasIllegalChars = password.ToCharArray().Any(c => !char.IsLetterOrDigit(c));
+
+            bool hasNumber = password.ToCharArray().Any(c => char.IsDigit(c));
+
+            bool hasLetter = password.ToCharArray().Any(c => char.IsLetter(c));
+
+            bool hasCorrectLength = password.Length >= 5 && password.Length <= 12;
+
+            bool hasNoConsecutiveChars = Regex.IsMatch(password, "([a-zA-Z])\\1{" + (1) + "}");
+
+
+
+            isValid = (!hasIllegalChars && hasCorrectLength && !hasNoConsecutiveChars && hasLetter && hasNumber);
+
+            return isValid;
+
+        }
+
+        partial void AddUserButton_TouchUpInside(UIButton sender)
+        {
             if (ValidatePassword(PasswordField.Text))
             {
                 var usersTab = this.TabBarController?.ViewControllers[0] as UsersTableViewController;
@@ -43,30 +64,6 @@ namespace XamarinNativePractialCoding
                 PresentViewController(alert, true, null);
                 PasswordField.Text = string.Empty;
             }
-
-        }
-
-        public static bool ValidatePassword(string password)
-        {
-            bool isValid;
-
-
-            bool hasIllegalChars = password.ToCharArray().Any(c => !char.IsLetterOrDigit(c));
-
-            bool hasNumber = password.ToCharArray().Any(c => char.IsDigit(c));
-
-            bool hasLetter = password.ToCharArray().Any(c => char.IsLetter(c));
-
-            bool hasCorrectLength = password.Length >= 5 && password.Length <= 12;
-
-            bool hasNoConsecutiveChars = Regex.IsMatch(password, "([a-zA-Z])\\1{" + (1) + "}");
-
-
-
-            isValid = (!hasIllegalChars && hasCorrectLength && !hasNoConsecutiveChars && hasLetter && hasNumber);
-
-            return isValid;
-
         }
     }
 }

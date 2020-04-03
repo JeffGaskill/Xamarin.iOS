@@ -44,29 +44,24 @@ namespace XamarinNativePractialCoding
 
         private void AddUsersFromStorage()
         {
-            try
+            if (string.IsNullOrEmpty(Global.PersistedData)) { return; }
+
+            string[] users = Global.PersistedData.Split("\r".ToCharArray());
+
+
+            for (int i = 0; i < users.Length; i++)
             {
-                string[] users = Global.PersistedData.Split("\r".ToCharArray());
-
-
-                for (int i = 0; i < users.Length; i++)
+                if (!string.IsNullOrEmpty(users[i]))
                 {
-                    if (!string.IsNullOrEmpty(users[i]))
-                    {
-                        Person person = users[i].ToPerson();
-                        person.Password = Xamarin.Essentials.SecureStorage.GetAsync(person.Id).Result;
-                        dataSource.People.Insert(i, users[i].ToPerson());
-                        using (var indexPath = NSIndexPath.FromRowSection(i, 0))
-                            TableView.InsertRows(new[] { indexPath }, UITableViewRowAnimation.Automatic);
-                    }
-
+                    Person person = users[i].ToPerson();
+                    person.Password = Xamarin.Essentials.SecureStorage.GetAsync(person.Id).Result;
+                    dataSource.People.Insert(i, users[i].ToPerson());
+                    using (var indexPath = NSIndexPath.FromRowSection(i, 0))
+                        TableView.InsertRows(new[] { indexPath }, UITableViewRowAnimation.Automatic);
                 }
-            }
-            catch (Exception)
-            {
 
-                throw;
             }
+
         }
 
         public override void ViewDidLoad()
